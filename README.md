@@ -5,4 +5,3 @@ Gems used in this project:
 - watir-webdriver
 - minitest
 - page-object
-
