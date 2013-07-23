@@ -9,3 +9,7 @@ gem "minitest"
 gem "page-object"
 
 gem "activerecord"
+
+gem "sauce"
+
+gem "sauce-connect"

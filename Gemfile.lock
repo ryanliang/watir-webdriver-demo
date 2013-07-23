@@ -16,22 +16,51 @@ GEM
     builder (3.0.4)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    cmdparse (2.0.5)
     data_magic (0.15.2)
       faker (>= 1.1.2)
       yml_reader (>= 0.2)
     faker (1.1.2)
       i18n (~> 0.5)
     ffi (1.9.0-x86-mingw32)
+    highline (1.6.19)
     i18n (0.6.1)
+    json (1.8.0)
+    mime-types (1.23)
     minitest (5.0.5)
     multi_json (1.7.7)
+    net-http-persistent (2.8)
+    net-ssh (2.6.8)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     page-object (0.9.1)
       page_navigation (>= 0.8)
       selenium-webdriver (>= 2.33.0)
       watir-webdriver (>= 0.6.4)
     page_navigation (0.9)
       data_magic (>= 0.14)
+    parallel (0.7.1)
+    parallel_tests (0.15.0)
+      parallel
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rubyzip (0.9.9)
+    sauce (3.0.6)
+      childprocess (>= 0.1.6)
+      cmdparse (>= 2.0.2)
+      highline (>= 1.5.0)
+      json (>= 1.2.0)
+      net-http-persistent
+      net-ssh
+      net-ssh-gateway
+      parallel_tests (= 0.15.0)
+      rest-client
+      sauce_whisk (~> 0.0.8)
+      selenium-webdriver (>= 0.1.2)
+    sauce-connect (3.0.2)
+      sauce (~> 3.0.6)
+    sauce_whisk (0.0.8)
+      rest-client
     selenium-webdriver (2.33.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
@@ -50,4 +79,6 @@ DEPENDENCIES
   activerecord
   minitest
   page-object
+  sauce
+  sauce-connect
   watir-webdriver (~> 0.6.4)

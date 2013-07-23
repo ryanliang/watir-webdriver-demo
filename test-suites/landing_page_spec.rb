@@ -1,10 +1,13 @@
 $LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "../", "./"))
+# $LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "../config", "./"))
 
 # require 'minitest/spec'
 require "minitest/autorun"
 require "minitest/assertions"
 require 'env'
+require 'yaml'
 
+sauce_secrets = YAML.load_file('../config/ondemand.yml')
 
 describe "MFC Public Web" do
   before do    
@@ -15,7 +18,7 @@ describe "MFC Public Web" do
     caps[:name] = "Testing Selenium 2 with Ruby on XP with firefox"
     @browser = Selenium::WebDriver.for(
           :remote,
-          :url => "http://zliang:ad55aae8-ef05-4869-901e-1ffd6735f36f@ondemand.saucelabs.com:80/wd/hub",
+          :url => "http://#{sauce_secrets['username']}:#{sauce_secrets['access_key']}@ondemand.saucelabs.com:80/wd/hub",
           :desired_capabilities => caps)
   end
 
