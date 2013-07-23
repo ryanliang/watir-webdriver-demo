@@ -8,7 +8,15 @@ require 'env'
 
 describe "MFC Public Web" do
   before do    
-    @browser = Watir::Browser.new :firefox
+    # @browser = Watir::Browser.new :firefox
+    # @browser = Selenium::WebDriver.for :firefox
+    caps = Selenium::WebDriver::Remote::Capabilities::firefox
+    caps.platform = :XP
+    caps[:name] = "Testing Selenium 2 with Ruby on XP with firefox"
+    @browser = Selenium::WebDriver.for(
+          :remote,
+          :url => "http://zliang:ad55aae8-ef05-4869-901e-1ffd6735f36f@ondemand.saucelabs.com:80/wd/hub",
+          :desired_capabilities => caps)
   end
 
   describe LandingPage do
@@ -34,10 +42,10 @@ describe "MFC Public Web" do
 
     it "should be able to find Mutual Fund MFC028" do
       assert @landing_page.loaded?
-      
+            
       @landing_page.search_fund_with('028')
       fund_profile_page = FundProfilePage.new(@browser)
-      
+            
       assert fund_profile_page.loaded?
 
       fund_profile_page.fund_name.must_match "MACKENZIE CANADIAN LARGE CAP DIVIDEND & GROWTH FUND SERIES F"
