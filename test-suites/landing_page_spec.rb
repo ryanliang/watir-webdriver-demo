@@ -53,7 +53,7 @@ describe "MFC Public Web" do
   end
 
   after do 
-    @browser.close
+    @browser.quit
   end
 
 end
