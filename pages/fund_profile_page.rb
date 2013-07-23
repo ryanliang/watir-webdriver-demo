@@ -4,7 +4,7 @@ class FundProfilePage
   include PageObject
 
   h4(:fund_name)
-  span(:breadcrumb, class: "breadcrumbs")
+  span(:breadcrumb, class: "breadcrumbs", index: 0)
 
   def get_fund_name
   	fund_name

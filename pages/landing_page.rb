@@ -8,7 +8,7 @@ class LandingPage
   text_field(:fund_code, name: "code" )
   button(:find, name: "Submit" )
   button(:list_all, name: "ListAll" )
-  span(:breadcrumb, class: "breadcrumbs")
+  span(:breadcrumb, class: "breadcrumbs", index: 0)
 
   def search_fund_with(code)
     self.fund_code = code
@@ -20,7 +20,7 @@ class LandingPage
   end
 
   def loaded?
-    breadcrumb == "Mackenzie | Home"
+    breadcrumb == "Mackenzie | Home"    
   end
 
 end
