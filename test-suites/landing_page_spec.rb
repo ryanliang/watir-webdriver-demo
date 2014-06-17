@@ -16,30 +16,25 @@ describe "MFC Public Web" do
       @landing_page = LandingPage.new(@browser, true)
     end
 
-    it "should be loaded successfully" do      
-      assert_equal @browser.title, "Mackenzie | Home"
+    it "is loaded successfully" do
+      assert_equal @browser.title, "Mackenzie Investments | Home"
     end
 
-    it "should be have fund code search field" do
+    it "has fund code search field" do
       assert @landing_page.fund_code?
     end
 
-    it "should have the search button enable" do
+    it "has the search button enabled" do
       assert @landing_page.find?
     end
 
-    it "should have the list all button enable" do
+    it "has the list all button enable" do
       assert @landing_page.list_all?
     end
 
-    it "should be able to find Mutual Fund MFC028" do
-      assert @landing_page.loaded?
-      
+    it "is able to find Mutual Fund MFC028" do
       @landing_page.search_fund_with('028')
       fund_profile_page = FundProfilePage.new(@browser)
-      
-      assert fund_profile_page.loaded?
-
       fund_profile_page.fund_name.must_match "MACKENZIE CANADIAN LARGE CAP DIVIDEND & GROWTH FUND SERIES F"
     end
   end
